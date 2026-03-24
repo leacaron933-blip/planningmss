@@ -12,20 +12,20 @@
   --month-bg:#f2e5df;
   --card-border:#dddbe2;
   --shadow:0 1px 0 rgba(255,255,255,.8), 0 2px 6px rgba(36,48,78,.05);
-  --quarter-height:72px;
+  --quarter-height:58px;
 }
 
 html,body{margin:0;padding:0}
 body{
   font-family:Arial,Helvetica,sans-serif;
   color:var(--text);
-  background:radial-gradient(circle at top left,#f8f6f8 0%,#efedf1 45%,#ece9ef 100%);
+  background:#ece9ef;
 }
 
 .app{
-  max-width:285mm;
+  max-width:297mm;
   margin:12px auto;
-  padding:0 6px 10px;
+  padding:0 4px 8px;
 }
 
 .header{
@@ -33,7 +33,7 @@ body{
   grid-template-columns:118px 1fr;
   align-items:center;
   gap:14px;
-  margin-bottom:12px;
+  margin-bottom:8px;
 }
 .logo-wrap{
   display:flex;
@@ -116,7 +116,7 @@ body{
   min-width:0;
   width:100%;
   display:grid;
-  grid-template-columns:82px repeat(5,minmax(0,1fr));
+  grid-template-columns:72px repeat(5,minmax(0,1fr));
   border-radius:10px;
   overflow:hidden;
   background:transparent;
@@ -140,16 +140,17 @@ body{
   justify-content:center;
   color:#fff;
   font-weight:800;
-  font-size:10px;
+  font-size:8px;
   letter-spacing:.3px;
   margin:0 1px;
-  padding:0 26px 0 8px;
+  padding:0 48px 0 8px;
   border-radius:6px 6px 0 0;
   border-right:none;
   border-bottom:none;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.25);
 }
 .day-head-label{pointer-events:none}
+
 .day-head-actions{
   position:absolute;
   right:5px;
@@ -158,17 +159,15 @@ body{
   display:flex;
   align-items:center;
   gap:4px;
-  z-index:3;
 }
-.day-head-add,
-.day-head-edit{
+.day-head-add,.day-head-edit{
   width:18px;
   height:18px;
   border:none;
   border-radius:999px;
   background:rgba(255,255,255,.22);
   color:#fff;
-  font-size:10px;
+  font-size:8px;
   font-weight:900;
   cursor:pointer;
   display:inline-flex;
@@ -176,8 +175,8 @@ body{
   justify-content:center;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.2);
 }
-.day-head-add:hover,
-.day-head-edit:hover{background:rgba(255,255,255,.32)}
+.day-head-add:hover,.day-head-edit:hover{background:rgba(255,255,255,.32)}
+
 .day-head-popover{
   position:absolute;
   top:calc(100% + 6px);
@@ -223,7 +222,7 @@ body{
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:flex-start;
+  justify-content:center;
   text-align:center;
   font-size:12px;
   font-weight:900;
@@ -233,31 +232,9 @@ body{
   color:#31445f;
   background:linear-gradient(180deg,#f5f3f6 0%,#eeedf1 100%);
 }
-.row-label-title{font-size:11px}
-.row-label-range{
-  margin-top:8px;
-  font-size:9px;
-  color:#5e6f86;
-  font-weight:800;
-  text-transform:none;
-}
-.row-label-times{
-  margin-top:10px;
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:0;
-}
-.row-label-times span{
-  height:var(--quarter-height);
-  line-height:var(--quarter-height);
-  font-size:8px;
-  color:#7d8ca1;
-  font-weight:700;
-}
-.row-label-times span.quarter{opacity:0}
-.row-label-times span.hour{opacity:.9}
+.row-label-title{font-size:14px}
+.row-label-range{display:none !important;}
+.row-label-times{display:none !important;}
 
 .cell{
   background:linear-gradient(180deg,#f8f7fa 0%,#f0eef3 100%);
@@ -268,7 +245,7 @@ body{
 .cell.last-col{border-right:none}
 .row-label.slot-gap-top,
 .cell.slot-gap-top{
-  margin-top:8px;
+  margin-top:4px;
 }
 .cell.drag-over{
   outline:2px solid rgba(52,108,201,.18);
@@ -334,15 +311,15 @@ body{
   flex-direction:column;
   justify-content:flex-start;
 }
-.course-top{
-  height:21px;
+ .course-top{
+  height:17px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:6px;
-  padding:0 6px 0 10px;
+  padding:0 5px 0 8px;
   color:#2f405b;
-  font-size:10px;
+  font-size:8px;
   font-weight:700;
   background:linear-gradient(180deg,#ffffff 0%,#f4f1f5 100%);
   position:relative;
@@ -354,25 +331,26 @@ body{
   width:100%;
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:6px;
 }
+
 .course-time{
   min-width:0;
   display:flex;
   align-items:center;
-  gap:5px;
+  gap:4px;
 }
 .course-difficulty{
   flex:0 0 auto;
   margin-left:auto;
   text-align:right;
-  font-size:10px;
+  font-size:8px;
   letter-spacing:1px;
   white-space:nowrap;
 }
 .course-time::before{
   content:"◷";
-  font-size:10px;
+  font-size:8px;
   opacity:.95;
 }
 .course-top-actions{
@@ -398,7 +376,7 @@ body{
   background:#eef2fb;
   color:#20314e;
   cursor:pointer;
-  font-size:10px;
+  font-size:8px;
   line-height:1;
   padding:0;
   box-shadow:0 1px 2px rgba(36,48,78,.08);
@@ -410,36 +388,35 @@ body{
 .course-icon-btn:hover{
   filter:brightness(.97);
 }
-.course-main{
-  min-height:37px;
-  display:flex;
+ .course-main{
+  min-height:28px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
   align-items:center;
-  gap:7px;
-  padding:7px 9px;
+  gap:5px;
+  padding:4px 7px;
   flex:0 0 auto;
   border-radius:0 0 10px 10px;
   box-shadow:0 1px 2px rgba(36,48,78,.06);
 }
-.course-icon{
-  font-size:18px;
+ .course-icon{
+  font-size:14px;
   line-height:1;
   flex:0 0 auto;
   filter:saturate(1.05);
 }
 .course-title{
-  flex:1 1 auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  grid-column:2;
+  justify-self:center;
   text-align:center;
-  font-size:10px;
+  width:100%;
+  font-size:8px;
   font-weight:800;
   text-transform:uppercase;
   line-height:1.05;
   word-break:break-word;
   letter-spacing:.1px;
 }
-
 .course-card.has-desc .course-main{
   border-radius:0;
 }
@@ -453,8 +430,8 @@ body{
   background:rgba(255,255,255,.96);
   border-radius:0 0 10px 10px;
   color:#51607a;
-  font-size:9px;
-  line-height:1.15;
+  font-size:8px;
+  line-height:1.12;
   box-shadow:0 1px 2px rgba(36,48,78,.06);
 }
 
@@ -591,7 +568,6 @@ body.print-preview-page{
 .print-preview-page .drawer,
 .print-preview-page .add-inline,
 .print-preview-page .empty,
-.print-preview-page .day-head-add,
 .print-preview-page .day-head-edit,
 .print-preview-page .day-head-popover{
   display:none !important;

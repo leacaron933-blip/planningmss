@@ -5,6 +5,7 @@ const SLOTS = [
 ];
 
 const STORAGE_KEY = "planning_v4_colors_difficulty";
+const BUNDLED_STATE_FILE = "planning-maison-sport-sante.json";
 
 const defaultState = {
   month: "SEPTEMBRE 2024",
@@ -63,11 +64,20 @@ const difficultyInput = document.getElementById("difficulty");
 const iconSuggestions = document.getElementById("iconSuggestions");
 const autoIconBtn = document.getElementById("autoIconBtn");
 
-init();
+init().catch((err) => {
+  console.error("Init failed", err);
+  state = normalizeState(state);
+  fillSelects();
+  monthTitle.value = state.month || defaultState.month;
+  renderIconSuggestions();
+  renderBoard();
+  bindEvents();
+  bindPrintEvents();
+});
 
 async function init() {
+  state = await hydrateInitialState(state);
   state = normalizeState(state);
-  state = await tryLoadBundledPlanning(state);
   fillSelects();
   monthTitle.value = state.month || defaultState.month;
   renderIconSuggestions();
@@ -76,26 +86,6 @@ async function init() {
   bindPrintEvents();
 }
 
-
-async function tryLoadBundledPlanning(currentState) {
-  try {
-    const hasSaved = !!localStorage.getItem(STORAGE_KEY);
-    if (hasSaved) return currentState;
-    const res = await fetch("planning-maison-sport-sante-cycle-avril-juillet-2026.json", { cache: "no-store" });
-    if (!res.ok) return currentState;
-    const parsed = await res.json();
-    if (!parsed || !Array.isArray(parsed.courses)) return currentState;
-    const next = normalizeState({
-      month: parsed.month || currentState.month || defaultState.month,
-      dayHeaderColors: currentState.dayHeaderColors || defaultState.dayHeaderColors,
-      courses: parsed.courses
-    });
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-    return next;
-  } catch (e) {
-    return currentState;
-  }
-}
 function bindEvents() {
   const addBtn = document.getElementById("addBtn");
   const closeDrawerBtn = document.getElementById("closeDrawer");
@@ -196,11 +186,47 @@ function applySuggestedIcon(forceAuto = false) {
   highlightActiveIconSuggestion();
 }
 
+
+
+async function hydrateInitialState(currentState) {
+  const hasLocalState = hasSavedState();
+  if (hasLocalState) return currentState;
+
+  try {
+    const response = await fetch(BUNDLED_STATE_FILE, { cache: "no-store" });
+    if (!response.ok) return currentState;
+
+    const parsed = await response.json();
+    const candidate = {
+      month: parsed.month || defaultState.month,
+      dayHeaderColors: parsed.dayHeaderColors || defaultState.dayHeaderColors,
+      courses: Array.isArray(parsed.courses) ? parsed.courses : []
+    };
+
+    const normalized = normalizeState(candidate);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
+    return normalized;
+  } catch (error) {
+    console.warn("Unable to load bundled planning json", error);
+    return currentState;
+  }
+}
+
+function hasSavedState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return false;
+    const parsed = JSON.parse(raw);
+    return !!parsed && Array.isArray(parsed.courses);
+  } catch (error) {
+    return false;
+  }
+}
+
 function fillSelects() {
   dayInput.innerHTML = DAYS.map((d) => `<option value="${d}">${d}</option>`).join("");
   slotInput.innerHTML = SLOTS.map((s) => `<option value="${s.id}">${s.label.replace(/\n/g, " ")}</option>`).join("");
 }
-
 
 function renderDayHeader(day) {
   const head = document.createElement("div");
@@ -219,9 +245,13 @@ function renderDayHeader(day) {
   const addBtn = document.createElement("button");
   addBtn.type = "button";
   addBtn.className = "day-head-add";
-  addBtn.title = `Ajouter un cours le ${day}`;
-  addBtn.setAttribute("aria-label", `Ajouter un cours le ${day}`);
+  addBtn.title = `Ajouter un cours pour ${day}`;
+  addBtn.setAttribute("aria-label", `Ajouter un cours pour ${day}`);
   addBtn.textContent = "+";
+  addBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    openCreate(day, "matin_1");
+  });
 
   const editBtn = document.createElement("button");
   editBtn.type = "button";
@@ -250,11 +280,6 @@ function renderDayHeader(day) {
     popover.appendChild(swatch);
   });
 
-  addBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    openCreate(day, "matin_1");
-  });
-
   editBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     closeDayHeaderEditors(head);
@@ -266,6 +291,7 @@ function renderDayHeader(day) {
   head.append(label, actions, popover);
   return head;
 }
+
 function renderDayHeaders() {
   DAYS.forEach((day) => {
     const head = document.createElement("div");
@@ -312,7 +338,16 @@ function renderDayHeaders() {
       head.classList.toggle("editing", !popover.hidden);
     });
 
-    head.append(label, editBtn, popover);
+    const addBtn = document.createElement("button");
+    addBtn.type = "button";
+    addBtn.className = "day-head-add";
+    addBtn.title = `Ajouter un cours pour ${day}`;
+    addBtn.textContent = "+";
+    addBtn.addEventListener("click", (e) => { e.stopPropagation(); openCreate(day, "matin_1"); });
+    const actions = document.createElement("div");
+    actions.className = "day-head-actions";
+    actions.append(addBtn, editBtn);
+    head.append(label, actions, popover);
     board.appendChild(head);
   });
 }
