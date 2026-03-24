@@ -1,0 +1,28 @@
+name: Build portable app
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Télécharger le projet
+        uses: actions/checkout@v4
+
+      - name: Installer Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Installer Pake
+        run: cargo install pake-cli
+
+      - name: Générer le .exe portable
+        run: pake .\index.html --name "Planning Mairie" --use-local-file --keep-binary --targets x64
+
+      - name: Envoyer le .exe en artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: planning-mairie-portable
+          path: |
+            **/*.exe
