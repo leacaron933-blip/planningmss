@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prévisualisation impression A4</title>
+  <link rel="stylesheet" href="style-impression.css">
+</head>
+<body class="print-preview-page">
+  <div class="print-preview-shell">
+    <div class="print-preview-toolbar">
+      <div class="print-preview-toolbar-left">
+        <a href="index.html" class="btn">← Retour planning</a>
+        <button class="btn primary" id="printBtn" type="button">Imprimer</button>
+      </div>
+      <div class="print-preview-toolbar-right">
+        <span>Aperçu A4 paysage</span>
+      </div>
+    </div>
+
+    <div class="print-preview-app">
+      <div class="app">
+        <header class="header">
+          <div class="logo-wrap">
+            <img src="logo-removebg-preview.png" alt="Maison Sport Santé" class="logo">
+          </div>
+          <div class="month-banner">
+            <input id="monthTitle" value="SEPTEMBRE 2024" />
+          </div>
+        </header>
+
+        <main class="board-wrap">
+          <section class="board" id="board">
+            <div class="corner"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="drawer" id="drawer">
+    <div class="drawer-head">
+      <div>
+        <h2 id="drawerTitle">Ajouter un cours</h2>
+        <p>Modification rapide du planning</p>
+      </div>
+      <button class="icon-btn" id="closeDrawer" type="button">✕</button>
+    </div>
+
+    <form id="courseForm" class="form">
+      <input type="hidden" id="courseId">
+      <div class="form-grid">
+        <label><span>Titre</span><input type="text" id="title" required></label>
+        <label><span>Jour</span><select id="day"></select></label>
+        <label><span>Bloc</span><select id="slot"></select></label>
+        <label><span>Horaire</span><input type="text" id="timeLabel"></label>
+        <label><span>Couleur</span><select id="color"></select></label>
+        <label><span>Difficulté</span><select id="difficulty"></select></label>
+        <label><span>Icône</span><input type="text" id="icon"></label>
+      </div>
+      <div class="icon-suggestions-block"><div class="icon-suggestions-head"><span>Icônes suggérées</span><button type="button" class="btn icon-auto-btn" id="autoIconBtn">Suggérer automatiquement</button></div><div class="icon-suggestions" id="iconSuggestions"></div></div>
+      <label><span>Description</span><textarea id="description" rows="4"></textarea></label>
+      <div class="form-actions">
+        <button type="submit" class="btn primary">Enregistrer</button>
+        <button type="button" class="btn" id="duplicateBtn">Dupliquer</button>
+        <button type="button" class="btn" id="deleteBtn">Supprimer</button>
+        <button type="button" class="btn" id="cancelBtn">Annuler</button>
+      </div>
+    </form>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+{
+  "month": "PLANNING DES ACTIVITÉS DE LA MAISON SPORT SANTÉ\nCycle du 13 avril au 3 juillet 2026\n(période scolaire)",
+  "courses": [
+    {
+      "id": "a28ca15b",
+      "day": "Lundi",
+      "slot": "matin_1",
+      "timeLabel": "9h30–10h30",
+      "title": "POSTURES / RELAXATION",
+      "color": "yellow",
+      "icon": "🧘",
+      "description": "",
+      "difficulty": 1
+    },
+    {
+      "id": "6eca0929",
+      "day": "Lundi",
+      "slot": "matin_1",
+      "timeLabel": "10h00–11h00",
+      "title": "CARDIO SANTÉ",
+      "color": "yellow",
+      "icon": "🏃",
+      "description": "",
+      "difficulty": 2
+    },
+    {
+      "id": "35f5b4ac",
+      "day": "Lundi",
+      "slot": "matin_1",
+      "timeLabel": "11h00–12h00",
+      "title": "CIRCUIT TRAINING SANTÉ",
+      "color": "yellow",
+      "icon": "⏱️",
+      "description": "",
+      "difficulty": 2
+    },
+    {
+      "id": "c99a00fb",
+      "day": "Lundi",
+      "slot": "apres_1",
+      "timeLabel": "12h15–13h15",
+      "title": "REMISE EN FORME",
+      "color": "yellow",
+      "icon": "🤸",
+      "description": "",
+      "difficulty": 1
+    },
+    {
+      "id": "8470175e",
+      "day": "Lundi",
+      "slot": "apres_1",
+      "timeLabel": "15h15–16h15",
+      "title": "GYM DOUCE & MOBILITÉ ARTICULAIRE",
+      "color": "yellow",
+      "icon": "🧍",
+      "description": "",
+      "difficulty": 1
+    },
+    {
+      "id": "0100b973",
+      "day": "Mardi",
+      "slot": "matin_1",
+      "timeLabel": "10h30–11h30",
+      "title": "GYM RENFO & TONUS",
+      "color": "yellow",
+      "icon": "🏋️",
+      "description": "",
+      "difficulty": 2
+    },
+    {
+      "id": "c6d07497",
+      "day": "Mardi",
+      "slot": "matin_1",
+      "timeLabel": "11h00–12h00",
+      "title": "GYM ÉQUILIBRE & PRÉVENTION CHUTE",
+      "color": "yellow",
+      "icon": "🧍",
+      "description": "",
+      "difficulty": 1
+    },
+    {
+      "id": "59d41652",
+      "day": "Mardi",
+      "slot": "apres_1",
+      "timeLabel": "14h30–15h30",
+      "title": "MARCHE SANTÉ",
+      "color": "yellow",
+      "icon": "🚶",
+      "description": "",
+      "difficulty": 1
+    },
+    {
+      "id": "9e041db3",
+      "day": "Mardi",
+      "slot": "apres_1",
+      "timeLabel": "15h45–16h45",
+      "title": "REMISE EN FORME",
+      "color": "yellow",
+      "icon": "🤸",
+      "description": "",
+      "difficulty": 1
+    },
+    {
+      "id": "99fa5bde",
+      "day": "Mardi",
+      "slot": "apres_1",
+      "timeLabel": "17h30–18h30",
+      "title": "CIRCUIT TRAINING SANTÉ",
+      "color": "yellow",
+      "icon": "⏱️",
+      "description": "",
+      "difficulty": 2
+    },
+    {
+      "id": "9be475b2",
+      "day": "Mardi",
+      "slot": "apres_1",
+      "timeLabel": "17h45–18h45",
+      "title": "CARDIO SANTÉ",
+      "color": "yellow",
+      "icon": "🏃",
+      "description": "",
+      "difficulty": 2
+    },
+    {
+      "id": "64c248ce",
+      "day": "Mercredi",
+      "slot": "matin_1",
+      "timeLabel": "9h00–10h00",
+      "title": "CARDIO SANTÉ",
+      "color": "yellow",
+      "icon": "🏃",
+      "description": "",
+      "difficulty": 2
+    },
+    {
+      "id": "4151f30e",
+      "day": "Mercredi",
+      "slot": "apres_1",
+      "timeLabel": "12h15–13h15",
+      "title": "CARDIO SANTÉ",
+      "color": "yellow",
+      "icon": "🏃",
+      "description": "",
+      "difficulty": 2
+    },
+    {
+      "id": "de609d25",
+      "day": "Jeudi",
+      "slot": "matin_1",
+      "timeLabel": "9h30–10h30",
+      "title": "CIRCUIT ÉQUILIBRE & COORDINATION",
+      "color": "yellow",
+      "icon": "❤️",
+      "description": "",
+      "difficulty": 1
+    },
+    {
+      "id": "35e13d70",
+      "day": "Jeudi",
+      "slot": "matin_1",
+      "timeLabel": "10h00–11h00",
+      "title": "CARDIO SANTÉ",
+      "color": "yellow",
+      "icon": "🏃",
+      "description": "",
+      "difficulty": 2
+    },
+    {
+      "id": "fb261aea",
+      "day": "Jeudi",
+      "slot": "matin_1",
+      "timeLabel": "11h00–12h00",
+      "title": "RENFO MUSCULAIRE ADAPTÉ",
+      "color": "yellow",
+      "icon": "🏋️",
+      "description": "",
+      "difficulty": 2
+    },
+    {
+      "id": "a23dd64e",
+      "day": "Jeudi",
+      "slot": "apres_1",
+      "timeLabel": "15h45–16h45",
+      "title": "ACTIVITÉS MÉMOIRE & COORDINATION",
+      "color": "yellow",
+      "icon": "🧠",
+      "description": "",
+      "difficulty": 1
+    },
+    {
+      "id": "d8ddfb52",
+      "day": "Jeudi",
+      "slot": "apres_1",
+      "timeLabel": "17h30–18h30",
+      "title": "ACTIV'FORME",
+      "color": "yellow",
+      "icon": "🤸",
+      "description": "",
+      "difficulty": 1
+    },
+    {
+      "id": "f1aa06df",
+      "day": "Jeudi",
+      "slot": "apres_1",
+      "timeLabel": "17h45–18h45",
+      "title": "CARDIO SANTÉ",
+      "color": "yellow",
+      "icon": "🏃",
+      "description": "",
+      "difficulty": 2
+    },
+    {
+      "id": "af8037e7",
+      "day": "Vendredi",
+      "slot": "matin_1",
+      "timeLabel": "9h30–10h30",
+      "title": "CARDIO SANTÉ",
+      "color": "yellow",
+      "icon": "🏃",
+      "description": "",
+      "difficulty": 2
+    },
+    {
+      "id": "de6f40bc",
+      "day": "Vendredi",
+      "slot": "matin_1",
+      "timeLabel": "11h00–12h00",
+      "title": "CIRCUIT TRAINING SANTÉ",
+      "color": "yellow",
+      "icon": "⏱️",
+      "description": "",
+      "difficulty": 2
+    }
+  ]
+}

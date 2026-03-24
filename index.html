@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planning Maison Sport Santé</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo-wrap">
+        <img src="logo-removebg-preview.png" alt="Maison Sport Santé" class="logo">
+      </div>
+      <div class="month-banner">
+        <input id="monthTitle" value="SEPTEMBRE 2024" />
+      </div>
+    </header>
+
+    <section class="toolbar">
+      <div class="toolbar-left">
+        <button class="btn primary" id="addBtn">Ajouter un cours</button>
+        <button class="btn" id="exportBtn">Exporter JSON</button>
+        <button class="btn" id="printBtn" type="button">Impression PDF</button>
+        <label class="btn file-btn">
+          Importer JSON
+          <input type="file" id="importInput" accept=".json,application/json" hidden>
+        </label>
+        <button class="btn danger" id="resetBtn">Réinitialiser</button>
+      </div>
+      <div class="toolbar-right">
+        <span>Alignement automatique par heure de début • Glisser-déposer activé</span>
+      </div>
+    </section>
+
+
+    <main class="board-wrap">
+      <section class="board" id="board">
+        <div class="corner"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="drawer" id="drawer">
+    <div class="drawer-head">
+      <div>
+        <h2 id="drawerTitle">Ajouter un cours</h2>
+        <p>Modification rapide du planning</p>
+      </div>
+      <button class="icon-btn" id="closeDrawer">✕</button>
+    </div>
+
+    <form id="courseForm" class="form">
+      <input type="hidden" id="courseId">
+
+      <div class="form-grid">
+        <label>
+          <span>Titre</span>
+          <input type="text" id="title" required>
+        </label>
+
+        <label>
+          <span>Jour</span>
+          <select id="day"></select>
+        </label>
+
+        <label>
+          <span>Bloc</span>
+          <select id="slot"></select>
+        </label>
+
+        <label>
+          <span>Horaire</span>
+          <input type="text" id="timeLabel" placeholder="Ex : 9h30–10h30">
+        </label>
+
+        <label>
+          <span>Couleur</span>
+          <select id="color">
+            <option value="green">Vert</option>
+            <option value="blue">Bleu</option>
+            <option value="orange">Orange</option>
+            <option value="purple">Violet</option>
+            <option value="yellow">Jaune</option>
+            <option value="teal">Turquoise</option>
+            <option value="coral">Corail</option>
+            <option value="pink">Rose</option>
+            <option value="red">Rouge</option>
+            <option value="slate">Bleu gris</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Difficulté</span>
+          <select id="difficulty">
+            <option value="1">1 bras</option>
+            <option value="2">2 bras</option>
+            <option value="3">3 bras</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Icône</span>
+          <input type="text" id="icon" list="sportIconsList" placeholder="Ex : 🧘">
+          <datalist id="sportIconsList">
+            <option value="🚶"><option value="🏃"><option value="🧘"><option value="🤸">
+            <option value="🏋️"><option value="🚴"><option value="🧍"><option value="⏱️">
+            <option value="🥾"><option value="❤️"><option value="🫀"><option value="🩺">
+            <option value="🫁"><option value="🏊"><option value="🤾"><option value="⚽">
+          </datalist>
+        </label>
+      </div>
+
+      <div class="icon-suggestions-block">
+        <div class="icon-suggestions-head">
+          <span>Icônes suggérées</span>
+          <button type="button" class="btn icon-auto-btn" id="autoIconBtn">Suggérer automatiquement</button>
+        </div>
+        <div class="icon-suggestions" id="iconSuggestions"></div>
+      </div>
+
+      <label>
+        <span>Description</span>
+        <textarea id="description" rows="4" placeholder="Optionnel"></textarea>
+      </label>
+
+      <div class="form-actions">
+        <button type="submit" class="btn primary">Enregistrer</button>
+        <button type="button" class="btn" id="duplicateBtn">Dupliquer</button>
+        <button type="button" class="btn" id="deleteBtn">Supprimer</button>
+        <button type="button" class="btn" id="cancelBtn">Annuler</button>
+      </div>
+    </form>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
